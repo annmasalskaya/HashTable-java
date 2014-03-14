@@ -14,34 +14,27 @@ public class HashTable
             array[i]=new ArrayList<String>();
     }
 
-    public ArrayList<String> hashFunc(String str)
+    private int hashFunc(String str)
     {
         int result=0;
         for( int i=0; i<str.length(); i++)
             result+=(int)str.charAt(i);
 
-       return array[result%size];
+       return result%size;
     }
 
     public void addElement(String str)
     {
-       hashFunc(str).add(str);
+        array[hashFunc(str)].add(str);
     }
 
-    /*public boolean findElement(String str)
+    public boolean findElement(String str)
     {
-        ArrayList<String> res=hashFunc(str);
-       for (int i = 0; i  <hashFunc(str).size(); i++)
-       {
-            if(res.get(i)==str)
-           System.out.print(hashFunc(str).get(i) + " ");
+        for (int j = 0; j < array[hashFunc(str)].size(); j++)
+              if((array[hashFunc(str)].get(j)).equals(str))
                 return true;
-
-       }
-
-
-       return false;
-    }*/
+        return false;
+    }
 
     public void printHashTable()
     {

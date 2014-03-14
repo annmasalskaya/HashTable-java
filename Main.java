@@ -28,7 +28,13 @@ public class Main
         }
 
         table.printHashTable();
-        //table.findElement("violate");
+        if(table.findElement("te"))
+        {
+            System.out.print("Такое слово есть.");
+        }
+        else
+            System.out.print("Такого слова нету.");
+
     }
 }
 
